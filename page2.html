@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The WHOOP Fitness Tracker | Products</title>
+
+  <style>
+    :root {
+      --black: #09050f;
+      --dark-purple: #170a28;
+      --panel: #24123d;
+      --purple: #9b4dff;
+      --light-purple: #d1a8ff;
+      --soft-text: #d9cae8;
+      --line: #5d328a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--black);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 18px 8%;
+      background-color: rgba(9, 5, 15, 0.96);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--light-purple);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 24px;
+    }
+
+    nav a:hover,
+    nav .active {
+      color: var(--light-purple);
+    }
+
+    .products-hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 85px 8%;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      color: var(--light-purple);
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(48px, 6vw, 74px);
+      line-height: 1.05;
+      margin: 18px 0;
+    }
+
+    h1 span {
+      color: var(--light-purple);
+    }
+
+    h2 {
+      font-size: 37px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      color: var(--soft-text);
+      max-width: 580px;
+      font-size: 19px;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 2px solid var(--line);
+    }
+
+    .image-label {
+      position: absolute;
+      right: -15px;
+      bottom: 25px;
+      background-color: var(--panel);
+      border: 1px solid var(--purple);
+      border-radius: 10px;
+      padding: 15px 20px;
+    }
+
+    .image-label strong {
+      display: block;
+      color: var(--light-purple);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .image-label span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .quick-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .quick-stats div {
+      border-left: 2px solid var(--purple);
+      padding-left: 12px;
+    }
+
+    .quick-stats strong {
+      display: block;
+      color: var(--light-purple);
+      font-size: 20px;
+    }
+
+    .quick-stats span {
+      color: var(--soft-text);
+      font-size: 13px;
+    }
+
+    .catalog {
+      padding: 80px 8%;
+      background-color: var(--dark-purple);
+    }
+
+    .catalog-wrap {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading p {
+      color: var(--soft-text);
+      font-size: 18px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .product-card.featured {
+      border: 2px solid var(--purple);
+      transform: translateY(-10px);
+    }
+
+    .product-image {
+      position: relative;
+    }
+
+    .product-image img {
+      display: block;
+      width: 100%;
+      height: 215px;
+      object-fit: cover;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 6px 10px;
+      background-color: var(--purple);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 25px;
+    }
+
+    .product-number {
+      margin: 0;
+      color: var(--light-purple);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .product-info h3 {
+      margin: 10px 0 0;
+      font-size: 27px;
+    }
+
+    .price {
+      color: white;
+      font-size: 31px;
+      font-weight: bold;
+      margin: 12px 0 4px;
+    }
+
+    .price small {
+      color: var(--soft-text);
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .description {
+      color: var(--soft-text);
+      min-height: 82px;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      color: var(--soft-text);
+    }
+
+    li {
+      margin: 9px 0;
+    }
+
+    li::before {
+      content: "✓";
+      color: var(--light-purple);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: auto;
+      padding: 13px 18px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 7px;
+      background-color: var(--purple);
+    }
+
+    .button:hover {
+      background-color: #b775ff;
+    }
+
+    .how-it-works {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 8%;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+      margin-top: 45px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 62px;
+      height: 62px;
+      margin: auto;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--purple);
+      border-radius: 50%;
+      color: var(--light-purple);
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    .step h3 {
+      margin: 17px 0 8px;
+      font-size: 23px;
+    }
+
+    .step p {
+      color: var(--soft-text);
+      margin: 0;
+    }
+
+    .promo {
+      max-width: 1100px;
+      margin: 0 auto 90px;
+      padding: 55px 8%;
+      background: linear-gradient(135deg, #3c1767, #7a32ce);
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .promo h2 {
+      margin-top: 0;
+    }
+
+    .promo p {
+      color: #f0e6ff;
+      font-size: 18px;
+    }
+
+    .code {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px dashed white;
+      border-radius: 6px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      padding: 26px 8%;
+      text-align: center;
+      background-color: #050308;
+      color: #b9a9c9;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .nav-wrap,
+      .products-hero {
+        flex-direction: column;
+        display: flex;
+      }
+
+      nav {
+        margin-top: 14px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .product-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card.featured {
+        transform: none;
+      }
+
+      .quick-stats {
+        gap: 15px;
+      }
+
+      .hero-image {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Author: Yonatan Castano-Sanchez | Date: November 8, 2026 -->
+
+  <header>
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">WHOOP <span>FITNESS</span></a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="page2.html">Products</a>
+        <a href="page3.html">About & Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="products-hero">
+      <div class="hero-text">
+        <p class="eyebrow">THE WHOOP COLLECTION</p>
+        <h1>Your data. <span>Your advantage.</span></h1>
+
+        <p>
+          Pick the tracker and support plan that matches your lifestyle.
+          Whether you are just getting started or training every day, WHOOP
+          turns your data into a clearer plan.
+        </p>
+
+        <div class="quick-stats">
+          <div>
+            <strong>24/7</strong>
+            <span>Body Tracking</span>
+          </div>
+
+          <div>
+            <strong>3</strong>
+            <span>Ways to Improve</span>
+          </div>
+
+          <div>
+            <strong>1</strong>
+            <span>Smarter You</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+          alt="Athlete running outdoors"
+        >
+
+        <div class="image-label">
+          <strong>BUILT FOR EVERYDAY ATHLETES</strong>
+          <span>Move with purpose.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog">
+      <div class="catalog-wrap">
+        <div class="section-heading">
+          <p class="eyebrow">CHOOSE YOUR SYSTEM</p>
+          <h2>Everything You Need to Perform Better</h2>
+          <p>Flexible products and services designed around your goals.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+                alt="Person working out in a gym"
+              >
+              <span class="product-tag">STARTER</span>
+            </div>
+
+            <div class="product-info">
+              <p class="product-number">01 / TRACKER</p>
+              <h3>WHOOP Core</h3>
+              <p class="price">$199</p>
+
+              <p class="description">
+                A comfortable everyday tracker that gives you the key data
+                behind sleep, recovery, and activity.
+              </p>
+
+              <ul>
+                <li>24/7 heart-rate tracking</li>
+                <li>Sleep and recovery scores</li>
+                <li>One performance band</li>
+              </ul>
+
+              <a class="button" href="page3.html">Ask About Core</a>
+            </div>
+          </article>
+
+          <article class="product-card featured">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+                alt="Athlete training in a gym"
+              >
+              <span class="product-tag">BEST SELLER</span>
+            </div>
+
+            <div class="product-info">
+              <p class="product-number">02 / BUNDLE</p>
+              <h3>WHOOP Pro Bundle</h3>
+              <p class="price">$299</p>
+
+              <p class="description">
+                The complete setup for people who want greater flexibility,
+                stronger habits, and more ways to track progress.
+              </p>
+
+              <ul>
+                <li>WHOOP Core tracker</li>
+                <li>Two interchangeable bands</li>
+                <li>Wireless charging pack</li>
+              </ul>
+
+              <a class="button" href="page3.html">Ask About Pro</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&amp;fit=crop&amp;w=800&amp;q=85"
+                alt="Person stretching after a workout"
+              >
+              <span class="product-tag">COACHING</span>
+            </div>
+
+            <div class="product-info">
+              <p class="product-number">03 / SERVICE</p>
+              <h3>WHOOP Coaching</h3>
+              <p class="price">$14.99 <small>/ month</small></p>
+
+              <p class="description">
+                Get personalized fitness suggestions based on your recovery,
+                activity, habits, and long-term goals.
+              </p>
+
+              <ul>
+                <li>Weekly progress reports</li>
+                <li>Goal and habit tracking</li>
+                <li>Personalized tips</li>
+              </ul>
+
+              <a class="button" href="page3.html">Ask About Coaching</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="section-heading">
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>Three Steps. Better Decisions.</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Choose Your System</h3>
+          <p>Select the tracker or coaching plan that supports your goals.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Wear It Daily</h3>
+          <p>Wear WHOOP during workouts, rest, sleep, work, and everyday life.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Learn From Your Data</h3>
+          <p>Use your results to make smarter choices and build stronger habits.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="promo">
+      <p class="eyebrow">CLASS-PROJECT PROMO</p>
+      <h2>Save 15% on the WHOOP Pro Bundle</h2>
+      <p>Use this fictional promo code at checkout:</p>
+      <p class="code">RECOVER15</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 The WHOOP Fitness Tracker | Student website project</p>
+    <p>This site is not affiliated with the official WHOOP company.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about the WHOOP Fitness team and contact us.">
+
+  <title>WHOOP Fitness | About & Contact</title>
+
+  <style>
+    :root {
+      --black: #09050f;
+      --deep-purple: #160a26;
+      --panel: #211137;
+      --purple: #9b4dff;
+      --light-purple: #d9baff;
+      --soft-text: #d8cbe7;
+      --line: #5f368e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 18px 8%;
+      background: #09050f;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--light-purple);
+    }
+
+    nav a {
+      color: white;
+      margin-left: 24px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav .active {
+      color: var(--light-purple);
+    }
+
+    .label {
+      color: var(--light-purple);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 15px 0;
+      font-size: clamp(48px, 6vw, 72px);
+      line-height: 1.05;
+    }
+
+    h1 span {
+      color: var(--light-purple);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 36px;
+      line-height: 1.2;
+    }
+
+    .hero {
+      padding: 90px 8%;
+      background:
+        radial-gradient(circle at top right, #421d6c 0%, transparent 38%),
+        var(--black);
+    }
+
+    .hero-wrap {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-copy p {
+      color: var(--soft-text);
+      font-size: 19px;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 430px;
+      display: block;
+      object-fit: cover;
+      border: 2px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .hero-note {
+      position: absolute;
+      left: -24px;
+      bottom: -24px;
+      width: 245px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--purple);
+      border-radius: 12px;
+    }
+
+    .hero-note strong {
+      display: block;
+      color: var(--light-purple);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .hero-note span {
+      display: block;
+      margin-top: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .story {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 8%;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .story p {
+      color: var(--soft-text);
+      font-size: 18px;
+    }
+
+    .principles {
+      display: grid;
+      gap: 15px;
+    }
+
+    .principle {
+      padding: 20px;
+      background: var(--panel);
+      border-left: 3px solid var(--purple);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .principle strong {
+      display: block;
+      color: var(--light-purple);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .principle span {
+      color: var(--soft-text);
+    }
+
+    .team {
+      padding: 85px 8%;
+      background: var(--deep-purple);
+      border-top: 1px solid #3e245d;
+      border-bottom: 1px solid #3e245d;
+    }
+
+    .team-wrap,
+    .contact-wrap,
+    .utility-wrap {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading p {
+      color: var(--soft-text);
+      font-size: 18px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .team-card {
+      min-height: 320px;
+      padding: 30px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #65309f, #b66cff);
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .role {
+      margin: 22px 0 4px;
+      color: var(--light-purple);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .team-card h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .team-card p:last-child {
+      color: var(--soft-text);
+    }
+
+    .contact {
+      padding: 90px 8%;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+    }
+
+    .contact-info,
+    .contact-form,
+    .hours,
+    .faq {
+      padding: 30px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .contact-info h3,
+    .contact-form h3,
+    .hours h3,
+    .faq h3 {
+      margin-top: 0;
+      font-size: 25px;
+    }
+
+    .contact-item {
+      margin: 22px 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--light-purple);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .contact-item a,
+    .contact-item span {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 6px;
+      color: var(--soft-text);
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #694297;
+      border-radius: 7px;
+      background: #0e0718;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 14px 22px;
+      border: none;
+      border-radius: 7px;
+      background: var(--purple);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #b775ff;
+    }
+
+    .utility {
+      padding: 0 8% 90px;
+      background: var(--deep-purple);
+    }
+
+    .utility-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
+    }
+
+    .hours p {
+      color: var(--soft-text);
+    }
+
+    details {
+      padding: 14px 0;
+      border-bottom: 1px solid #593584;
+    }
+
+    details:last-child {
+      border-bottom: none;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      margin-bottom: 0;
+      color: var(--soft-text);
+    }
+
+    footer {
+      padding: 26px 8%;
+      background: #050308;
+      color: #b9a9c9;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .nav-wrap {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 14px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .hero-wrap,
+      .story,
+      .contact-grid,
+      .utility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-note {
+        left: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Authors: Yonatan Castano-Sanchez, Kyle Farbstein, Garrett Kathman | Date: November 8, 2026 -->
+
+  <header>
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">WHOOP <span>FITNESS</span></a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="page2.html">Products</a>
+        <a class="active" href="page3.html">About & Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-wrap">
+        <div class="hero-copy">
+          <p class="label">ABOUT WHOOP FITNESS</p>
+          <h1>Fitness data with <span>a clear purpose.</span></h1>
+
+          <p>
+            WHOOP Fitness is built around a simple idea: people should be able
+            to understand their activity, recovery, and progress without
+            getting lost in complicated numbers.
+          </p>
+
+          <p>
+            We designed this concept to make performance information easier to
+            use in real life—at the gym, during recovery, and between goals.
+          </p>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+            alt="Athlete running outdoors"
+          >
+
+          <div class="hero-note">
+            <strong>OUR FOCUS</strong>
+            <span>Help people make informed choices every day.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <div>
+        <p class="label">HOW IT STARTED</p>
+        <h2>More than numbers on a screen.</h2>
+
+        <p>
+          The team noticed that fitness trackers can collect plenty of
+          information, but users may still be unsure what it means for their
+          next workout, their sleep, or their recovery.
+        </p>
+
+        <p>
+          WHOOP Fitness was created as a way to connect those details to useful
+          next steps, turning information into a better daily routine.
+        </p>
+      </div>
+
+      <div class="principles">
+        <div class="principle">
+          <strong>CLARITY</strong>
+          <span>Present useful insights without unnecessary complexity.</span>
+        </div>
+
+        <div class="principle">
+          <strong>BALANCE</strong>
+          <span>Recognize rest and recovery as part of long-term progress.</span>
+        </div>
+
+        <div class="principle">
+          <strong>CONSISTENCY</strong>
+          <span>Support habits that people can build and maintain over time.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="team">
+      <div class="team-wrap">
+        <div class="section-heading">
+          <p class="label">MEET THE TEAM</p>
+          <h2>Three Co-Founders. Equal Ownership.</h2>
+          <p>
+            Each member helped shape the strategy, development, content, and
+            final direction of WHOOP Fitness.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="avatar">YC</div>
+            <p class="role">CO-FOUNDER & LEAD DEVELOPER</p>
+            <h3>Yonatan Castano-Sanchez</h3>
+            <p>
+              Yonatan contributed to the website structure, technical build,
+              content organization, and overall digital experience.
+            </p>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">KF</div>
+            <p class="role">CO-FOUNDER & LEAD DEVELOPER</p>
+            <h3>Kyle Farbstein</h3>
+            <p>
+              Kyle contributed to the product direction, user-facing content,
+              visual choices, and overall business concept.
+            </p>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar">GK</div>
+            <p class="role">CO-FOUNDER & LEAD DEVELOPER</p>
+            <h3>Garrett Kathman</h3>
+            <p>
+              Garrett contributed to the feature ideas, customer journey,
+              quality review, and final presentation of the website.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact-wrap">
+        <div class="section-heading">
+          <p class="label">CONTACT</p>
+          <h2>Connect with WHOOP Fitness.</h2>
+          <p>
+            Reach out with questions about products, membership options, or
+            general support.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Customer Relations</h3>
+
+            <div class="contact-item">
+              <strong>EMAIL</strong>
+              <a href="mailto:support@whoopfitnesscollective.com">
+                support@whoopfitnesscollective.com
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <strong>PHONE</strong>
+              <a href="tel:7045550147">+1 (704) 555-0147</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>OFFICE</strong>
+              <span>
+                1250 Summit Crest Drive, Suite 420<br>
+                Charlotte, NC 28202
+              </span>
+            </div>
+
+            <div class="contact-item">
+              <strong>SOCIAL</strong>
+              <span>@whoopfitnesscollective</span>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Submit an Inquiry</h3>
+
+            <form>
+              <label for="name">Full Name</label>
+              <input id="name" type="text" placeholder="Enter your full name">
+
+              <label for="email">Email Address</label>
+              <input id="email" type="email" placeholder="you@example.com">
+
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" placeholder="What do you need help with?">
+
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Write your message here"></textarea>
+
+              <button class="button" type="button">Submit Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="utility">
+      <div class="utility-wrap">
+        <div class="utility-grid">
+          <div class="hours">
+            <h3>Hours of Operation</h3>
+            <p><strong>Monday–Friday:</strong> 8:00 AM – 7:00 PM</p>
+            <p><strong>Saturday:</strong> 10:00 AM – 4:00 PM</p>
+            <p><strong>Sunday:</strong> Closed</p>
+          </div>
+
+          <div class="faq">
+            <h3>Frequently Asked Questions</h3>
+
+            <details>
+              <summary>What does the WHOOP Fitness Tracker measure?</summary>
+              <p>It tracks information related to activity, sleep, recovery, and daily strain.</p>
+            </details>
+
+            <details>
+              <summary>How do I choose the right plan?</summary>
+              <p>Review the Products page to compare the tracker, bundle, and coaching options.</p>
+            </details>
+
+            <details>
+              <summary>When will I receive a response?</summary>
+              <p>Our support team aims to respond to submitted inquiries within one business day.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 WHOOP Fitness | Created for an academic website project</p>
+  </footer>
+</body>
+</html>
